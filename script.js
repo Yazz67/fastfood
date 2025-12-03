@@ -19,7 +19,38 @@ navLinks.forEach(link => {
   });
 });
 
+let startX = 0;
+let endX = 0;
 
+const homeImg = document.querySelector(".home-img");
+
+homeImg.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+homeImg.addEventListener("touchend", (e) => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const threshold = 50; // distance minimale pour déclencher le swipe
+  const swipeDistance = endX - startX;
+
+  if (swipeDistance > threshold) {
+    // swipe vers la droite → image précédente
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  } else if (swipeDistance < -threshold) {
+    // swipe vers la gauche → image suivante
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+}
+
+homeImg.addEventListener("touchmove", (e) => {
+  e.preventDefault(); // bloque le scroll horizontal
+}, { passive: false });
 
 
 const slides = document.querySelectorAll(".home-img img");
