@@ -1069,10 +1069,6 @@ body {
 
 
 @media screen and (max-width: 768px) {
-      .nav.container {
-    max-width: 50%;
-    margin: 0 auto;
-  }
     .nav.container {
     max-width: 50%;
     margin: 0 auto;
@@ -1095,6 +1091,7 @@ margin: 0 auto;
   padding: 2px 5px;
   border-radius: 8px;
   transition: background 0.3s ease, transform 0.3s ease;
+  
 }
 
   .nav-links li a:hover {
@@ -1102,7 +1099,7 @@ margin: 0 auto;
     color: #000;
     transform: scale(1.05);
   }
-  .menu-icon {
+   .menu-icon {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -1140,12 +1137,15 @@ margin: 0 auto;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    width: 110%;
+    width: 70%;
     padding: 20px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.5);
     transition: opacity 0.3s ease;
     z-index: 100;
     margin-top: 10%;
+  }
+  .btn-location {
+    margin-left: 0; /* centre le bouton sur mobile */
   }
 
   /* Navbar ouverte */
@@ -1154,5 +1154,5 @@ margin: 0 auto;
     opacity: 1;
     pointer-events: auto;
   }
-
 }
+
